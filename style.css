@@ -1,0 +1,208 @@
+/*CSS Variables*/
+
+:root{
+	--primary:#115571;
+	--dark:#14212d;
+	--light:#f2f4f7;
+	--shadow:0 1px 5px rgba(104,104,104, 0.8);
+	--secondary:#3c3c3c;
+	--complementary:#b43631;
+}
+
+/*html and Body style*/
+
+html {
+	box-sizing: border-box;
+	font-family: 'Roboto', Arial, Helvetica, sans-serif;
+	color: var(--dark);
+}
+
+body {
+	background: var(--light);
+	margin: 30px 50px;
+	line-height: 1.4;
+}
+
+/*style btn*/
+
+.btn {
+	background-color: var(--secondary);
+	color: var(--light);
+	padding: 0.6rem 1.3rem;
+	text-decoration: none;
+	border:0;
+}
+/*style img*/
+
+img {
+	max-width: 50%;
+	margin-bottom:20px;
+}
+
+ /*style main-container for all content in body*/
+
+
+.main-container {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-rows: 1fr auto auto auto;	/*Grid Template areas placing*/
+	grid-template-areas: 
+	'intro '
+	'nav ' 
+	'boxes '
+	'footer' ;
+}
+
+
+
+/*Intro*/
+.intro {
+		background: #005AA7;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(#f2f4f7, #115571);
+  background: -o-linear-gradient(#f2f4f7, #115571);
+  background: linear-gradient(#f2f4f7, #115571);  
+	background-size: cover;
+	background-position: center;
+	grid-area: intro;
+	min-height: 200px; /* hier mit min max arbeiten und die hoehe anpassen */
+	padding-top:3rem;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: center;
+	box-shadow: var(--shadow);
+}
+
+
+.intro h1{
+	font-size: 4rem;
+	margin-bottom:0;
+	color:var(--dark);
+}
+
+.intro p{
+	font-size: 1.3rem;
+	margin-top:0;
+	color:var(--dark);
+}
+
+/*Navigation*/
+.main-nav ul{
+	display: grid;
+	grid-gap: 20px;
+	/*grid-row: 20px;*/
+	padding: 0;
+	list-style: none;
+	grid-template-columns: repeat(4,1fr); 	
+	
+}
+
+.main-nav a{
+	background: var(--secondary);
+	display: block; 
+	text-decoration: none;
+	padding: 0.8rem;
+	text-align: center;
+	color: var(--light);
+	text-transform: lowercase;
+	font-size: 1.2rem;
+	box-shadow: var(--shadow);
+
+
+}
+
+.main-nav a:hover{
+	background: var(--primary);
+  	color: var(--light);
+}
+
+
+/*boxes*/
+.boxes {
+	grid-area: boxes;
+	display: grid;
+	align-items: stretch;
+	/*justify-items:center;*/
+	grid-gap:20px;
+	grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+}
+
+.box {
+	text-align: center;
+	padding: 1.5rem 2rem;
+	background: var(--light);
+	box-shadow: var(--shadow);
+}
+
+.box p {
+	color: var(--primary);
+
+}
+.box h3{
+	color: var(--secondary);
+}
+
+.box i{
+	
+	color: var(--complementary);
+}
+
+/*login Formular*/
+
+
+
+
+
+
+
+/*Footer*/
+.footer{
+	margin-top: 2rem;
+	background: var(--dark);
+	color: var(--light);
+	text-align: center;
+	padding: 1rem;
+}
+
+/*Media Queries*/
+@media (max-width: 700px) {
+	.top-container{
+		grid-template-areas: 
+		'intro intro '
+		'nav nav '
+		'boxes boxes '
+		'footer footer ';
+	
+	}
+
+	.intro h1{
+		font-size: 2.5rem;
+	}
+
+	.main-nav ul{
+		grid-template-columns: 1fr;
+	}
+
+		.info{
+		grid-template-columns: 1fr;
+	}
+	.info .btn {
+		display: block;
+		text-align: center;
+		margin:auto;
+	}
+}
+
+@media (max-width: 500px) {
+	.main-container{
+		grid-template-areas: 
+		'intro'
+		'nav'
+		'boxes'
+		'footer';
+	}
+
+}
+
+
+
